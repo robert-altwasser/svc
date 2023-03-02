@@ -1,0 +1,4 @@
+*.bed
+refs/
+filtering/
+.snakemake/
