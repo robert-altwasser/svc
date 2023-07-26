@@ -1,7 +1,7 @@
 #!/bin/bash
 
 snakemake \
-    --snakefile svc_snakemake.snk \
+    --snakefile svc.snk \
     --nt \
     --jobs 120 \
     --cluster-config ~/work/umi-data-processing/config/cluster_scv.yaml \
@@ -10,8 +10,3 @@ snakemake \
     --keep-going \
     --rerun-incomplete \
     --use-conda --conda-prefix=/fast/users/altwassr_c/work/conda-envs/
-# --touch \
-# --skip-script-cleanup \
-# --reason \
-
-# --until annovar \

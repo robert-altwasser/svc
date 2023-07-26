@@ -1,17 +1,3 @@
-##########################################
-### structure variance calling via delly
-### Workflow
-# A: SV calling on the BAM files of samples
-# A: merge all SV calls into unified site list
-# A: use merged calls list to genotype samples
-# A: merge all genotyped samples
-# ############  Skipped! ##########
-# A: use merged genotype list for germline filtering
-# ############  end Skipped! ######
-# B: SV calling on the BAM files of control
-# B: merge all control SV calls into unified site list
-# C: "setDIFF" sample SV calls with contol SV calls
-##########################################
 import subprocess
 import glob
 import os
@@ -30,26 +16,6 @@ CONTROL = list(filter(lambda x:'AML-N' in x, SAMPLES))
 SAMPLES = list(filter(lambda x:'AML-N' not in x, SAMPLES))
 ### Delly cannot handle merged samples (two IDs)
 SAMPLES = list(filter(lambda x:'_total' not in x, SAMPLES))
-
-# Sample did not work
-SAMPLES.remove("AML-492")
-
-# Samples without variance
-SAMPLES.remove("AML-108_2")
-SAMPLES.remove("AML-120")
-SAMPLES.remove("AML-133")
-SAMPLES.remove("AML-162")
-SAMPLES.remove("AML-169")
-SAMPLES.remove("AML-218")
-SAMPLES.remove("AML-222")
-SAMPLES.remove("AML-239")
-SAMPLES.remove("AML-239_newprep")
-SAMPLES.remove("AML-244")
-SAMPLES.remove("AML-245")
-SAMPLES.remove("AML-283")
-SAMPLES.remove("AML-288")
-SAMPLES.remove("AML-537")
-CONTROL.remove("AML-N01")
 
 
 rule all:
